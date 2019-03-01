@@ -12,14 +12,17 @@
     <!-- <header>Display Day & Time </header> -->
     <div id="day"> </div>
     <div id="time"></div>
+    <div id="date"></div>
 
     <script>
+        //Output the current day 
         let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let today = weekDays[new Date().getDay()];        
         document.getElementById("day").innerHTML = "Today is : " + today;
-
+       
+       
+        //Output the current time 
         let currentTime = new Date();
-
         let hour = currentTime.getHours();
         let format_AM_PM = "AM" ;
         if(hour === 0){
@@ -30,12 +33,22 @@
             hour -= 12;
             format_AM_PM = "PM";
         }
-
         let minutes = currentTime.getMinutes();
         let seconds = currentTime.getSeconds();
-
+        
+        if (seconds < 10) {
+            seconds = "0" + seconds
+        }
         document.getElementById("time").innerHTML = "Current time is : " + hour + " " + format_AM_PM + 
         " : " + minutes + " : " + seconds;
+
+
+        //Output the current date 
+        let date = currentTime.toLocaleDateString();
+        document.getElementById("date").innerHTML = "Date : " + date;
+
+
+
     </script>   
     
 </body>
