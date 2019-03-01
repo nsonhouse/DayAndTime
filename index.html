@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display Day & Time</title>
+</head>
+<body>       
+
+    <!--JavaScript program to display the current day and time -->
+    <!-- <header>Display Day & Time </header> -->
+    <div id="day"> </div>
+    <div id="time"></div>
+
+    <script>
+        let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let today = weekDays[new Date().getDay()];        
+        document.getElementById("day").innerHTML = "Today is : " + today;
+
+        let currentTime = new Date();
+
+        let hour = currentTime.getHours();
+        let format_AM_PM = "AM" ;
+        if(hour === 0){
+            hour += 12;
+            format_AM_PM = "AM";
+        }
+        else if (hour > 12) {
+            hour -= 12;
+            format_AM_PM = "PM";
+        }
+
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+
+        document.getElementById("time").innerHTML = "Current time is : " + hour + " " + format_AM_PM + 
+        " : " + minutes + " : " + seconds;
+    </script>   
+    
+</body>
+</html>
